@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Lefringhausen"
+  given-names: "Robert"
+  orcid: "https://orcid.org/0009-0008-2012-1703"
+- family-names: "Noel Aziz Hanna"
+  given-names: "Sami Leon"
+- family-names: "August"
+  given-names: "Elias"
+  orcid: "https://orcid.org/0000-0001-9018-5624"
+- family-names: "Hirche"
+  given-names: "Sandra"
+  orcid: "https://orcid.org/0000-0001-7819-5926"
+title: "BABI"
+version: "0.1.0"
+date-released: 2025-09-01
+url: "https://github.com/TUM-ITR/BABI"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Lefringhausen"
+    given-names: "Robert"
+    orcid: "https://orcid.org/0009-0008-2012-1703"
+  - family-names: "Noel Aziz Hanna"
+    given-names: "Sami Leon"
+  - family-names: "August"
+    given-names: "Elias"
+    orcid: "https://orcid.org/0000-0001-9018-5624"
+  - family-names: "Hirche"
+    given-names: "Sandra"
+    orcid: "https://orcid.org/0000-0001-7819-5926"
+  title: "Barrier Certificates for Unknown Systems with Latent States and Polynomial Dynamics using Bayesian Inference"
+  doi: "10.48550/arXiv.2504.01807"
+  journal: "arXiv preprint"
+  year: 2025
