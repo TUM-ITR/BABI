@@ -7,7 +7,7 @@
 
 `BABI` is a software package to identify and verify forward-invariant sets of unknown dynamical systems with latent states and polynomial dynamics, using only output data. To enable data-efficient inference with rigorous uncertainty quantification, a Bayesian approach is employed: a prior in state-space representation, which allows incorporating structural insights or domain knowledge, is updated with a targeted marginal Metropolis–Hastings (MMH) sampler. Posterior samples are then used to synthesize a barrier certificate and corresponding invariant set via a sum-of-squares (SOS) optimization problem. An additional test set of posterior samples provides finite-sample probabilistic guarantees that the certificate holds for the true, unknown system.
 
-The approach is explained in the paper "Barrier Certificates for Unknown Systems with Latent States and Polynomial Dynamics using Bayesian Inference", available as a preprint on [arXiv](https://doi.org/10.48550/arXiv.2504.01807).
+The approach is explained in the paper "Barrier Certificates for Unknown Systems with Latent States and Polynomial Dynamics using Bayesian Inference", available on [IEEExplore](https://doi.org/10.1109/CDC57313.2025.11312207) and as a preprint on [arXiv](https://doi.org/10.48550/arXiv.2504.01807).
 
 ## Installation and Requirements
 To run the code, the following software is required:

@@ -1,5 +1,11 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
+
+title: "BABI"
+version: "0.1.2"
+date-released: "2025-09-01"
+url: "https://github.com/TUM-ITR/BABI"
+
 authors:
 - family-names: "Lefringhausen"
   given-names: "Robert"
@@ -12,12 +18,9 @@ authors:
 - family-names: "Hirche"
   given-names: "Sandra"
   orcid: "https://orcid.org/0000-0001-7819-5926"
-title: "BABI"
-version: "0.1.0"
-date-released: 2025-09-01
-url: "https://github.com/TUM-ITR/BABI"
+
 preferred-citation:
-  type: article
+  type: conference-paper
   authors:
   - family-names: "Lefringhausen"
     given-names: "Robert"
@@ -31,6 +34,10 @@ preferred-citation:
     given-names: "Sandra"
     orcid: "https://orcid.org/0000-0001-7819-5926"
   title: "Barrier Certificates for Unknown Systems with Latent States and Polynomial Dynamics using Bayesian Inference"
-  doi: "10.48550/arXiv.2504.01807"
-  journal: "arXiv preprint"
+  doi: "10.1109/CDC57313.2025.11312207"
+  collection-title: "2025 IEEE 64th Conference on Decision and Control (CDC)"
+  conference:
+    name: "2025 IEEE 64th Conference on Decision and Control (CDC)"
+  start: 6925
+  end: 6932
   year: 2025
