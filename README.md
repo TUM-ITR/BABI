@@ -3,7 +3,7 @@
 </p>
 
 # `BABI`: Barrier Certificates via Bayesian Inference
-[![DOI](https://zenodo.org/badge/1048307205.svg)](https://doi.org/10.5281/zenodo.17036521)
+[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.17036521-blue)](https://doi.org/10.5281/zenodo.17036521)
 
 `BABI` is a software package to identify and verify forward-invariant sets of unknown dynamical systems with latent states and polynomial dynamics, using only output data. To enable data-efficient inference with rigorous uncertainty quantification, a Bayesian approach is employed: a prior in state-space representation, which allows incorporating structural insights or domain knowledge, is updated with a targeted marginal Metropolis–Hastings (MMH) sampler. Posterior samples are then used to synthesize a barrier certificate and corresponding invariant set via a sum-of-squares (SOS) optimization problem. An additional test set of posterior samples provides finite-sample probabilistic guarantees that the certificate holds for the true, unknown system.
 
