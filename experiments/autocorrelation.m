@@ -20,10 +20,10 @@ n_y = 1; % number of outputs
 K_training = 1e5; % number of samples used to find barrier function
 K_test = 0; % number of samples used to validate barrier function
 K = K_training + K_test; % number of samples
-k_d = 0; % number of samples to be skipped to decrease correlation (thinning)
-K_b = 200; % length of burn-in period for each stage
+k_d = 0; % number of MH iterations to be skipped between two stored samples to decrease correlation (thinning)
+K_b = 1000; % length of burn-in period (number of MH iterations) for each stage
 T_chunk = 10; % number of datapoints added at each stage
-K_stage = 500; % number of samples per stage
+K_stage = 5000; % number of samples per stage
 alpha = linspace(1, 0.25, 200);
 regularizer = 0; % regularizer for proposal covariance
 
@@ -111,7 +111,8 @@ end
 [MMH_samples, ~, ~] = staged_MMH(y, K, K_b, k_d, f_theta, g_theta, log_pdf_w_theta, log_pdf_theta, theta_init, log_pdf_x_0, x_0_init, proposal_cov_init, T_chunk, K_stage, alpha, regularizer);
 
 % Plot autocorrelation
-plot_autocorrelation(MMH_samples, 'max_lag', 200);
+max_lag = 1000;
+acf = plot_autocorrelation(MMH_samples, 'max_lag', max_lag);
 
 % Plot sample pdf
 % plot_sample_pdf(MMH_samples, 'num_bins', 500);

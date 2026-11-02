@@ -39,10 +39,10 @@ max_feasability_ratio = 1.1; % upper bound
 K_training = 750; % number of samples used to find barrier function
 K_test = 750; % number of samples used to validate barrier function
 K = K_training + K_test; % number of samples
-k_d = 150; % number of samples to be skipped to decrease correlation (thinning)
-K_b = 200; % length of burn-in period for each stage
+k_d = 600; % number of MH iterations to be skipped between two stored samples to decrease correlation (thinning)
+K_b = 1000; % length of burn-in period (number of MH iterations) for each stage
 T_chunk = 10; % number of datapoints added at each stage
-K_stage = 500; % number of samples per stage
+K_stage = 5000; % number of samples per stage
 alpha = linspace(1, 0.25, 200);
 regularizer = 0; % regularizer for proposal covariance
 
