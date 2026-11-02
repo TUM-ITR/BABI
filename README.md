@@ -36,6 +36,35 @@ Below is an example output from `experiments/exemplary_run.m`, showing the synth
 
 <img src="assets/forward-invariant_set.svg" alt="forward-invariant set" width="400"/>
 
+## Erratum
+Algorithm 1 in the paper (up to and including v0.1.2) contains a bookkeeping error in the marginal Metropolis–Hastings sampler: the chain index was only advanced on acceptance, so rejected proposals were not recorded as repeated states. As a result, the stored samples do not follow the posterior, as states from which proposals are frequently accepted are over-represented. Accordingly, thinning in the paper is described as discarding samples between accepted samples, whereas it should refer to MH iterations. In the corrected version below, every iteration produces a sample (line 8), and burn-in and thinning refer to MH iterations.
+
+```text
+Algorithm 1 (corrected): Marginal Metropolis–Hastings sampler
+
+Input:  observations D, model f_θ(·), g_θ(·), p_W(· | θ),
+        priors p(θ), p(x_0), proposal distribution q(θ', x_0' | θ[k], x_0[k]),
+        initial values θ[1], x_0[1], number of samples K,
+        burn-in K_b, thinning parameter k_d
+Output: K samples from p(θ, x_{0:T} | D)
+
+ 1: set N ← K_b + 1 + (K - 1)(k_d + 1)
+ 2: get x_{0:T}[1] and compute likelihood
+ 3: for k = 1, ..., N - 1 do
+ 4:     propose θ', x_0' ~ q(θ', x_0' | θ[k], x_0[k])
+ 5:     perform forward simulation to obtain x_{0:T}'
+ 6:     compute likelihood p(D | θ', x_0')
+ 7:     compute acceptance probability α
+ 8:     set (θ, x_{0:T})[k+1] ← (θ', x_{0:T}') with probability α,
+        otherwise (θ, x_{0:T})[k+1] ← (θ, x_{0:T})[k]
+ 9: end for
+10: discard burn-in and perform thinning
+```
+
+The fix is included from v0.2.0. Since burn-in and thinning now refer to MH iterations rather than accepted proposals, the autocorrelation analysis in Fig. 2 was repeated with the corrected sampler and the sampler settings were tuned accordingly (burn-in `K_b = 1000`, samples per stage `K_stage = 5000`, thinning `k_d = 600`). All experiments were then rerun with these settings.
+
+The qualitative results and conclusions of the paper are unchanged. The SOS program is still feasible and the resulting certificate still valid for the true system in 100/100 runs, while the 99.9 % confidence lower bound 1 - δ changes only slightly, from 98.75 % ± 0.42 % (range 97.41 % to 99.08 %) to 98.80 % ± 0.42 % (range 97.01 % to 99.08 %). The barrier function of the exemplary run in Fig. 3 has different coefficients, but the resulting forward-invariant set is qualitatively the same. The prior baseline is unaffected by the error, and its SOS program remains infeasible in all runs. The code used for the published results is available under tag [v0.1.2](https://github.com/TUM-ITR/BABI/tree/v0.1.2).
+
 ## Reference
 If you use this software in your research, please cite the following paper:
 ```

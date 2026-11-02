@@ -1,4 +1,4 @@
-function plot_autocorrelation(MMH_samples, varargin)
+function autocorrelation = plot_autocorrelation(MMH_samples, varargin)
 %PLOT_AUTOCORRELATION Plot the autocorrelation function (ACF) of the MMH samples.
 % This might be helpful when adjusting the thinning parameter k_d.
 %
@@ -7,6 +7,10 @@ function plot_autocorrelation(MMH_samples, varargin)
 %
 %   Variable-length input argument list:
 %       max_lag: maximum lag at which to calculate the ACF
+%
+%   Outputs:
+%       autocorrelation: (max_lag+1) x (n_theta+n_x) matrix of the ACF of
+%       the parameters and initial states, lags 0 to max_lag
 
 % Get number of models.
 K = size(MMH_samples, 1);
@@ -56,6 +60,6 @@ legend('show');
 grid on;
 ylim([-0.1, 1]);
 yticks(-1:0.1:1);
-xlim([0, 200]);
-xticks(0:20:max_lag);
+xlim([0, max_lag]);
+xticks(0:50:max_lag);
 end

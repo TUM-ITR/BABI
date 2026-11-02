@@ -12,8 +12,8 @@ function [MMH_samples, all_samples, acceptance_ratio] = staged_MMH(y, K, K_b, k_
 %   Inputs:
 %       y: training output trajectory
 %       K: number of models/scenarios to be sampled in final stage
-%       K_b: length of the burn-in period applied at every stage
-%       k_d: number of models/scenarios to be skipped to decrease correlation (thinning) in final stage
+%       K_b: length of the burn-in period (number of MH iterations) applied at every stage
+%       k_d: number of MH iterations to be skipped between two stored samples to decrease correlation (thinning) in final stage
 %       f_theta: state transition function parametrized by theta; has inputs (theta, x)
 %       g_theta: measurement function parametrized by theta; has inputs (theta, x)
 %       log_pdf_w_theta: function that returns the logarithm of the probability density function of the measurement noise parametrized by theta; has inputs (theta, w)
@@ -23,7 +23,7 @@ function [MMH_samples, all_samples, acceptance_ratio] = staged_MMH(y, K, K_b, k_
 %       x_0_init: initial x_0
 %       proposal_cov_init: initial covariance of multivariate normal proposal distribution (e.g., covariance of the prior) 
 %       T_chunk: number of datapoints added at each stage
-%       K_stage: number of samples per stage
+%       K_stage: number of samples per stage (MH iterations after burn-in, without thinning)
 %       alpha: proposal scaling factor (scalar or vector containing it for each stage)
 %       regularizer: small constant added to diagonal of proposal covariance
 %

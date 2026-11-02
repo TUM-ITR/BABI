@@ -18,7 +18,7 @@ addpath(genpath('Path\to\SOSTOOLS'));
 addpath(genpath('Path\to\MOSEK'));
 
 % Number of Monte Carlo runs
-N = 1;
+N = 100;
 
 % Create a timestamped subfolder to store results.
 timestamp = datestr(now, 'yyyy-mm-dd_HH-MM-SS');

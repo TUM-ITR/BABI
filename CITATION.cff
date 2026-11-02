@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 
 title: "BABI"
-version: "0.1.2"
-date-released: "2025-09-01"
+version: "0.2.0"
+date-released: "2026-11-02"
 url: "https://github.com/TUM-ITR/BABI"
 
 authors:
